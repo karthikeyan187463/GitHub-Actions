@@ -1,7 +1,16 @@
+"""
+This module contains unit tests for the randomizer function.
+The randomizer function generates a random integer within a specified range.
+"""
+
 import unittest
-from your_module import randomizer
+from my_module import randomizer  # Replace 'my_module' with the actual module name
 
 class TestRandomizer(unittest.TestCase):
+    """
+    Unit test class for testing the randomizer function.
+    """
+
     def test_output_within_range(self):
         """Test that randomizer output is within the specified range."""
         min_value, max_value = 1, 10
