@@ -4,7 +4,7 @@ The randomizer function generates a random integer within a specified range.
 """
 
 import unittest
-from my_module import randomizer  # Replace 'my_module' with the actual module name
+import random  
 
 class TestRandomizer(unittest.TestCase):
     """
