@@ -28,12 +28,12 @@ jobs:
 
       - name: Run pylint
         run: |
-          pylint my_module.py  # Replace with the path to your module or directory
+          pylint ../my_module.py  # Replace with the path to your module or directory
 
       - name: Run black (code formatter)
         run: |
-          black --check my_module.py  # Replace with the path to your module or directory
+          black --check ../my_module.py  # Replace with the path to your module or directory
 
       - name: Run flake8
         run: |
-          flake8 my_module.py  # Replace with the path to your module or directory
+          flake8 ../my_module.py  # Replace with the path to your module or directory
