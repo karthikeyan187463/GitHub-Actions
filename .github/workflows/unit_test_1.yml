@@ -1,20 +1,45 @@
-            - name: Python Linter
-  # You may pin to the exact commit or the version.
-  # uses: sunnysid3up/python-linter@93076bd8f740f062069291d738fc70c1b4171c1d
-  uses: sunnysid3up/python-linter@v0.1-beta.7
-  with:
-    # Source file or directory
-    source: # optional, default is .
-    # Set strictness for lint [low, medium, high]
-    strict: # optional, default is medium
-    # Mypy options
-    mypy-options: # optional, default is 
-    # Pylint options
-    pylint-options: # optional, default is 
-    # Black options
-    black-options: # optional, default is 
-    # Isort options
-    isort-options: # optional, default is 
-    # Confirm if source is a Django project
-    django: # optional
-          
+name: Run Python Linter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Python Linter
+        uses: sunnysid3up/python-linter@v0.1-beta.7
+        with:
+          # Optional: Specify the source file or directory (default is the current directory)
+          source: .  # Change this if you want to lint a specific directory/file
+          # Optional: Set the strictness for linting (low, medium, high)
+          strict: medium  # Default is medium
+          # Optional: Mypy options
+          mypy-options: "--strict"  # You can add your options here
+          # Optional: Pylint options
+          pylint-options: "--max-line-length=100"  # Example of a Pylint option
+          # Optional: Black options
+          black-options: "--line-length=88"  # Example of Black options
+          # Optional: Isort options
+          isort-options: "--profile black"  # Example of Isort options
+          # Optional: Confirm if the project is a Django project
+          django: false  # Set to true if your project is Django-based
