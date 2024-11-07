@@ -1,0 +1,9 @@
+# Linter and Formatter dependencies
+pylint==2.16.0         # Pylint for static code analysis
+black==23.1.0          # Black for automatic code formatting
+mypy==0.991            # Mypy for static type checking
+isort==5.11.0          # Isort for sorting imports
+
+# Add your project dependencies below
+requests==2.28.1       # Example dependency (replace with your actual project dependencies)
+flask==2.2.3           # Another example (replace with the actual dependencies for your project)
